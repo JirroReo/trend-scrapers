@@ -36,12 +36,12 @@ def getCounterpart(s):
     output = []
     if("http" in s[:8]):
         output.append(getDomain(s))
-        output.append(s)
+        output.append(s.replace('.', '[.]'))
         return output
     else:
-        output.append(s.lower().strip())
-        output.append("https://{0}/".format(s.lower().strip()))
-        return output.replace('.', '[.]')
+        output.append(s.lower().strip().replace('.', '[.]'))
+        output.append("https://{0}/".format(s.lower().strip().replace('.', '[.]')))
+        return output
 
 def splitbyLinesandTabs(s):
     L = preSplitLines(s)
